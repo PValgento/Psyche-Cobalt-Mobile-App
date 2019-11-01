@@ -53,8 +53,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\s_CleanGUI.cs" />
+     <Compile Include="Assets\Scripts\s_CleanPlayer.cs" />
      <Compile Include="Assets\Scripts\s_GameController.cs" />
      <Compile Include="Assets\Scripts\s_GUI.cs" />
+     <Compile Include="Assets\Scripts\s_LaunchPlayer.cs" />
+     <Compile Include="Assets\Scripts\s_SpacePlayer.cs" />
      <Compile Include="Assets\Scripts\sb_Camera.cs" />
      <Compile Include="Assets\Scripts\sb_Player.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
