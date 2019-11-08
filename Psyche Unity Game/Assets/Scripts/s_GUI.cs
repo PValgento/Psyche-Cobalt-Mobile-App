@@ -50,19 +50,15 @@ public class s_GUI : MonoBehaviour
         {//ERROR!
         }
     }
-    
-    void Update()
-    {//Update is called once per frame
-        
-    }
 
     public void StartGame()
     {
+        Debug.Log("Loading Scene 1");
         SceneManager.LoadScene(1);
     }
     public void GameOptions()
     {
-        Debug.Log("Options are not implented!");
+        //Debug.Log("Options are not implented!");
         //this.transform.parent.gameObject.SetActive(false); //Hide the menu.
     }
     public void ExitGame()
