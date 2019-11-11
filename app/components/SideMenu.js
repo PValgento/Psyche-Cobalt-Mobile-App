@@ -99,7 +99,9 @@ class SideMenu extends Component {
                         >
                             {this.checkFocus('Home', 0)}
                         </Text>
-                    
+                
+                   
+                
                         <Accordion
                             headerStyle = {styles.accordionHeaderStyle}
                             style = {styles.navSectionStyle}
@@ -111,7 +113,7 @@ class SideMenu extends Component {
                             expandedIconStyle = {styles.icon}
                             renderContent = {this.renderMissionContent}
                         />
-
+               
                         <Text 
                             style={styles.view}
                             onPress={this.navigateToScreen('Timeline')}
@@ -124,6 +126,13 @@ class SideMenu extends Component {
                             onPress={this.navigateToScreen('Social Media')}
                         >
                             {this.checkFocus('Social Media', 2)}
+                        </Text>
+                
+                        <Text
+                            style={styles.view}
+                            onPress={this.navigateToScreen('Game')}
+                        >
+                            {this.checkFocus('Game', 3)}
                         </Text>
                     </Content>
                 </ScrollView>

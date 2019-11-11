@@ -1,4 +1,5 @@
 import HomeScreen from '../screens/HomeScreen';
+import GameScreen from '../screens/GameScreen';
 import TimelineScreen from '../screens/TimelineScreen';
 import SocialMediaScreen from '../screens/SocialMediaScreen';
 import OverviewScreen from '../screens/OverviewScreen';
@@ -18,6 +19,9 @@ export default DrawerNavigator({
     },
     'Social Media': {
         screen: SocialMediaScreen
+    },
+    'Game': {
+        screen: GameScreen
     },
     Overview: {
         screen: OverviewScreen
