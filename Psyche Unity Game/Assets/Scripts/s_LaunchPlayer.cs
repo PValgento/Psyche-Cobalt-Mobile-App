@@ -37,11 +37,11 @@ public class s_LaunchPlayer : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
         GameObject selectedPrefab = prefab1; //default
-        if(prefabIndex == 1)
+        if(prefabIndex == 0)
             selectedPrefab = prefab1;
-        else if(prefabIndex == 2)
+        else if(prefabIndex == 1)
             selectedPrefab = prefab2;
-        else if(prefabIndex == 3)
+        else if(prefabIndex == 2)
             selectedPrefab = prefab3;
         else{}
 

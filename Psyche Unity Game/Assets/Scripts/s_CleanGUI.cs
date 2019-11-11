@@ -9,6 +9,7 @@ public class s_CleanGUI : MonoBehaviour
     private Button setButton;
     private GameObject playerObj;
     public string buttonType = "";
+    public int partId = 0; private int type = 0;
     
     void Awake()
     {
@@ -21,30 +22,77 @@ public class s_CleanGUI : MonoBehaviour
             setButton = GetComponent<Button>();
             setButton.onClick.AddListener(SelectCraft);
         }
-        else if(buttonType == "CRAFT1")
+        else if(buttonType == "CRAFT")
         {
             setButton = GetComponent<Button>();
-            setButton.onClick.AddListener(SelectCraft1);
-        }
-        else if(buttonType == "CRAFT2")
-        {
-            setButton = GetComponent<Button>();
-            setButton.onClick.AddListener(SelectCraft2);
-        }
-        else if(buttonType == "CRAFT3")
-        {
-            setButton = GetComponent<Button>();
-            setButton.onClick.AddListener(SelectCraft3);
+            //setButton.onClick.AddListener(SelectCraft);
+            setButton.onClick.AddListener(SelectPart); type = 5;
         }
         else if(buttonType == "LAUNCHCRAFT")
         {
             setButton = GetComponent<Button>();
             setButton.onClick.AddListener(LaunchCraft);
         }
+        else if(buttonType == "BODY")
+        {
+            setButton = GetComponent<Button>();
+            setButton.onClick.AddListener(SelectPart); type = 1;
+        }
+        else if(buttonType == "SOLAR")
+        {
+            setButton = GetComponent<Button>();
+            setButton.onClick.AddListener(SelectPart); type = 2;
+        }
+        else if(buttonType == "SENSOR")
+        {
+            setButton = GetComponent<Button>();
+            setButton.onClick.AddListener(SelectPart); type = 3;
+        }
+        else if(buttonType == "ENGINE")
+        {
+            setButton = GetComponent<Button>();
+            setButton.onClick.AddListener(SelectPart); type = 4;
+        }
         else
         {//ERROR!
         }
     }
+    public void SelectPart()
+    {
+        switch(type)
+        {
+            case 1:
+            {//Body
+                PlayerPrefs.SetInt("Body", partId);
+                break;
+            }
+            case 2:
+            {//Solar
+                PlayerPrefs.SetInt("Solar", partId);
+                break;
+            }
+            case 3:
+            {//Sensor
+                PlayerPrefs.SetInt("Sensor", partId);
+                break;
+            }
+            case 4:
+            {//Engine
+                PlayerPrefs.SetInt("Engine", partId);
+                break;
+            }
+            case 5:
+            {//Premade
+                PlayerPrefs.SetInt("Craft", partId);
+                playerObj.GetComponent<s_CleanPlayer>().ctl_UpdatePlayerPrefab();
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
+    }/*
     public void SelectCraft()
     {
         this.gameObject.SetActive(false);
@@ -60,25 +108,14 @@ public class s_CleanGUI : MonoBehaviour
         //craftButtonList = canvasUI.Transform.FindChildByRecursion("PremadeCrafts");
         if(craftButtonList != null && craftButtonList.name != "Canvas")
             craftButtonList.SetActive(true);
-    }
-    public void SelectCraft1()
+    }*/
+    public void SelectCraft()
     {
-        PlayerPrefs.SetInt("Craft", 1);
-        playerObj.GetComponent<s_CleanPlayer>().ctl_UpdatePlayerPrefab(1);
-    }
-    public void SelectCraft2()
-    {
-        PlayerPrefs.SetInt("Craft", 2);
-        playerObj.GetComponent<s_CleanPlayer>().ctl_UpdatePlayerPrefab(2);
-    }
-    public void SelectCraft3()
-    {
-        PlayerPrefs.SetInt("Craft", 3);
-        playerObj.GetComponent<s_CleanPlayer>().ctl_UpdatePlayerPrefab(3);
+        PlayerPrefs.SetInt("Craft", partId);
+        playerObj.GetComponent<s_CleanPlayer>().ctl_UpdatePlayerPrefab();
     }
     public void LaunchCraft()
-    {
-        /* if player has craft selected */
+    {//if player has craft selected
         SceneManager.LoadScene(3);
     }
 }

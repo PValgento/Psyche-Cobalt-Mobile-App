@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class s_SpacePlayer : MonoBehaviour
+public class s_SpacePlayer : sb_PlayerConstruction
 {
-    int prefabIndex = 1;
+    int prefabIndex = 0;
     public GameObject prefab1;
     public GameObject prefab2;
     public GameObject prefab3;
@@ -28,11 +28,11 @@ public class s_SpacePlayer : MonoBehaviour
             GameObject.Destroy(child.gameObject);
         }
         GameObject selectedPrefab = prefab1; //default
-        if(prefabIndex == 1)
+        if(prefabIndex == 0)
             selectedPrefab = prefab1;
-        else if(prefabIndex == 2)
+        else if(prefabIndex == 1)
             selectedPrefab = prefab2;
-        else if(prefabIndex == 3)
+        else if(prefabIndex == 2)
             selectedPrefab = prefab3;
         else{}
 
