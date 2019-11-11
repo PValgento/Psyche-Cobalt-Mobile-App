@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class s_CleanPlayer : sb_PlayerConstruction
 {
-    void Start()
+    void Awake()
     {//Start is called before the first frame update
-        
+        ctl_PlayerAwake();
+        ctl_UpdatePlayerPrefab();
     }
 
     void Update()

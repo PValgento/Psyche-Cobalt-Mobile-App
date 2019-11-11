@@ -63,28 +63,38 @@ public class s_CleanGUI : MonoBehaviour
         {
             case 1:
             {//Body
+                PlayerPrefs.SetInt("Craft", -1); //Don't use premade.
                 PlayerPrefs.SetInt("Body", partId);
                 break;
             }
             case 2:
             {//Solar
+                PlayerPrefs.SetInt("Craft", -1); //Don't use premade.
                 PlayerPrefs.SetInt("Solar", partId);
                 break;
             }
             case 3:
             {//Sensor
+                PlayerPrefs.SetInt("Craft", -1); //Don't use premade.
                 PlayerPrefs.SetInt("Sensor", partId);
                 break;
             }
             case 4:
             {//Engine
+                PlayerPrefs.SetInt("Craft", -1); //Don't use premade.
                 PlayerPrefs.SetInt("Engine", partId);
                 break;
             }
             case 5:
             {//Premade
+                //Don't make out of parts...
+                PlayerPrefs.SetInt("Body", -1);
+                PlayerPrefs.SetInt("Solar", -1);
+                PlayerPrefs.SetInt("Sensor", -1);
+                PlayerPrefs.SetInt("Engine", -1);
+
                 PlayerPrefs.SetInt("Craft", partId);
-                playerObj.GetComponent<s_CleanPlayer>().ctl_UpdatePlayerPrefab();
+                //playerObj.GetComponent<s_CleanPlayer>().ctl_UpdatePlayerPrefab();
                 break;
             }
             default:
@@ -92,23 +102,8 @@ public class s_CleanGUI : MonoBehaviour
                 break;
             }
         }
-    }/*
-    public void SelectCraft()
-    {
-        this.gameObject.SetActive(false);
-        GameObject canvasUI = GameObject.Find("Canvas");
-        GameObject craftButtonList = canvasUI; //Get rid of uninit error.
-        foreach(Transform child in canvasUI.transform)
-        {
-            if(child.name == "PremadeCrafts")
-            {
-                craftButtonList = child.gameObject;
-            }
-        }
-        //craftButtonList = canvasUI.Transform.FindChildByRecursion("PremadeCrafts");
-        if(craftButtonList != null && craftButtonList.name != "Canvas")
-            craftButtonList.SetActive(true);
-    }*/
+        playerObj.GetComponent<s_CleanPlayer>().ctl_UpdatePlayerPrefab();
+    }
     public void SelectCraft()
     {
         PlayerPrefs.SetInt("Craft", partId);
