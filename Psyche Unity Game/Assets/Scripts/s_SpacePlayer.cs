@@ -10,8 +10,13 @@ public class s_SpacePlayer : sb_PlayerConstruction
         ctl_UpdatePlayerPrefab();
 	}
 
-    
-    void Update()
+	private void Start()
+	{
+		Vector3 startPos = new Vector3(-300, 150, 0);
+		transform.position = startPos;
+	}
+
+	void Update()
     {//Update is called once per frame
         
     }

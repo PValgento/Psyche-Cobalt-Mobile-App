@@ -64,30 +64,28 @@ public class SpaceMovementController : MonoBehaviour
 
 	public void setDirection()
 	{
-		
 		//If we're NOT over UI we can consider it wanting to change the direction.
-		if ( !EventSystem.current.IsPointerOverGameObject())
+		if (!IsPointerOverUIObject() && Input.touchCount > 0)
 		{
-			Debug.Log("Input not over UI");
-			if (Input.touchCount > 0 || Input.GetMouseButton(0))
-			{
-				Debug.Log("Test setting direction detected");
-				Vector3 mousePos = Input.mousePosition;
-				mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-
-				direction[0] = mousePos.x - transform.position.x;
-				direction[1] = mousePos.y - transform.position.y;
-
-
-				//float theta = Mathf.Atan2(direction[1], direction[0] * (180 / Mathf.PI));
-				//Debug.Log("Theta: " + theta);
-
-				//TODO: Rotate the object
-				Vector3 rotVec = new Vector3(direction[0], direction[1], 0);
-				Model.transform.rotation = Quaternion.LookRotation(rotVec);
-
+			Touch touch = Input.GetTouch(0);
+			Vector3 mousePos = Input.mousePosition;
+			mousePos = Camera.main.ScreenToWorldPoint(touch.position);
+			direction[0] = mousePos.x - transform.position.x;
+			direction[1] = mousePos.y - transform.position.y;
+			Vector3 rotVec = new Vector3(direction[0], direction[1], 0);
+			Model.transform.rotation = Quaternion.LookRotation(rotVec);
 			}
-		}
+	}
+	private bool IsPointerOverUIObject()
+	{
+		PointerEventData eventDataPos = new PointerEventData(EventSystem.current);
+		eventDataPos.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+		List<RaycastResult> results = new List<RaycastResult>();
+		EventSystem.current.RaycastAll(eventDataPos, results);
+		return results.Count > 0;
 	}
 }
+
+
+
 
