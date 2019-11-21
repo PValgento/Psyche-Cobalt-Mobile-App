@@ -8,7 +8,7 @@ public class s_SpacePlayer : sb_PlayerConstruction
     {//Start is called before the first frame update
         ctl_PlayerAwake();
         ctl_UpdatePlayerPrefab();
-    }
+	}
 
     
     void Update()

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SpaceMovementController : MonoBehaviour
 {
-	
+	public GameObject Model;
 	Slider ThrottleSlider;
 	float currentThrottle = 0;
 	float speed = 0;
@@ -68,8 +68,8 @@ public class SpaceMovementController : MonoBehaviour
 		//If we're NOT over UI we can consider it wanting to change the direction.
 		if ( !EventSystem.current.IsPointerOverGameObject())
 		{
-			Debug.Log("Test setting not over UI");
-			if (Input.touchCount > 0 || Input.GetMouseButtonDown(0))
+			Debug.Log("Input not over UI");
+			if (Input.touchCount > 0 || Input.GetMouseButton(0))
 			{
 				Debug.Log("Test setting direction detected");
 				Vector3 mousePos = Input.mousePosition;
@@ -77,10 +77,15 @@ public class SpaceMovementController : MonoBehaviour
 
 				direction[0] = mousePos.x - transform.position.x;
 				direction[1] = mousePos.y - transform.position.y;
-				float theta = Mathf.Atan2(direction[1], direction[0] * (180 / Mathf.PI));
-				Debug.Log("Theta: " + theta);
+
+
+				//float theta = Mathf.Atan2(direction[1], direction[0] * (180 / Mathf.PI));
+				//Debug.Log("Theta: " + theta);
 
 				//TODO: Rotate the object
+				Vector3 rotVec = new Vector3(direction[0], direction[1], 0);
+				Model.transform.rotation = Quaternion.LookRotation(rotVec);
+
 			}
 		}
 	}
