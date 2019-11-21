@@ -14,10 +14,13 @@ public class SpaceMovementController : MonoBehaviour
 	Vector2 playerPos;
 	Rigidbody2D rb;
 	
-
-	// Start is called before the first frame update
+	void Awake()
+	{//InitializePlayerPosition
+		this.transform.position = new Vector3(0f, 0f, 0f);
+	}
+	
     void Start()
-    {
+    {//Start is called before the first frame update
 		rb = this.GetComponent<Rigidbody2D>();
 		direction[0] = 1;
 		direction[1] = 0;
@@ -28,10 +31,9 @@ public class SpaceMovementController : MonoBehaviour
 			// Get the Slider Component
 			ThrottleSlider = temp.GetComponent<Slider>();
 
-			// If a Slider Component was found on the GameObject.
+			
 			if (ThrottleSlider != null)
-
-			{
+			{//If a Slider Component was found on the GameObject.
 				// This is a Conditional Statement. 
 				// Basically if volumeLevel isn't null, 
 				// then it uses it's value, 
@@ -45,9 +47,9 @@ public class SpaceMovementController : MonoBehaviour
 		}
 	}
 
-    // Update is called once per frame
+    
     void Update()
-    {
+    {//Update is called once per frame
 		currentThrottle = ThrottleSlider.value;
 		setDirection();
     }
@@ -63,17 +65,26 @@ public class SpaceMovementController : MonoBehaviour
 	}
 
 	public void setDirection()
-	{
-		//If we're NOT over UI we can consider it wanting to change the direction.
-		if (!IsPointerOverUIObject() && Input.touchCount > 0)
+	{//If we're NOT over UI we can consider it wanting to change the direction.
+		if ( !EventSystem.current.IsPointerOverGameObject())
 		{
-			Touch touch = Input.GetTouch(0);
-			Vector3 mousePos = Input.mousePosition;
-			mousePos = Camera.main.ScreenToWorldPoint(touch.position);
-			direction[0] = mousePos.x - transform.position.x;
-			direction[1] = mousePos.y - transform.position.y;
-			Vector3 rotVec = new Vector3(direction[0], direction[1], 0);
-			Model.transform.rotation = Quaternion.LookRotation(rotVec);
+			Debug.Log("Input not over UI");
+			if (Input.touchCount > 0 || Input.GetMouseButton(0))
+			{
+				Debug.Log("Test setting direction detected");
+				Vector3 mousePos = Input.mousePosition;
+				mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+
+				direction[0] = mousePos.x - transform.position.x;
+				direction[1] = mousePos.y - transform.position.y;
+
+
+				//float theta = Mathf.Atan2(direction[1], direction[0] * (180 / Mathf.PI));
+				//Debug.Log("Theta: " + theta);
+
+				//TODO: Rotate the object
+				Vector3 rotVec = new Vector3(direction[0], direction[1], 0);
+				Model.transform.rotation = Quaternion.LookRotation(rotVec);
 			}
 	}
 	private bool IsPointerOverUIObject()
@@ -85,7 +96,3 @@ public class SpaceMovementController : MonoBehaviour
 		return results.Count > 0;
 	}
 }
-
-
-
-

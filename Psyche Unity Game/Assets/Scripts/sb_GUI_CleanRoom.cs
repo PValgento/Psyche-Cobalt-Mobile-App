@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 public class sb_GUI_CleanRoom : MonoBehaviour
 {
     private List<Button> activeButtons = new List<Button>();
-    private int topLocation = 500;
-    private int bottomLocation = -240;
+    private int topLocation = -200;//Was 450 want to be able to see craft though.
+    private int bottomLocation = -1000;//200,20,30
+    private int buttonSpacing = 90;
     private bool inDropDown = false;
 
     private Button premadeButton;
@@ -122,8 +123,8 @@ public class sb_GUI_CleanRoom : MonoBehaviour
             {
                 Debug.Log("Messing buttons");
                 activeButtons[i].gameObject.SetActive(true);
-                activeButtons[i].transform.position = new Vector3(193f, currentLocation, 0f);
-                currentLocation -= 30;
+                activeButtons[i].transform.localPosition = new Vector3(0f, currentLocation, 0f);
+                currentLocation -= buttonSpacing;
             }
             i++;
         }
