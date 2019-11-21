@@ -702,7 +702,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 0.7529412, g: 0.7529412, b: 0.7529412, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1496,7 +1496,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.7855998, g: 0.9150943, b: 0.91375023, a: 0}
+  m_BackGroundColor: {r: 0.8359737, g: 0.9528302, b: 0.95035106, a: 1}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -1593,6 +1593,7 @@ MonoBehaviour:
   prefab3: {fileID: 8617948562848503262, guid: 6cbab5b67668f4a38b43cb30518cbf37, type: 3}
   prefabRocket: {fileID: 6334809962852456098, guid: 820e6b8de0c01be8d8377d6138e4fe71,
     type: 3}
+  skybox: {fileID: 2100000, guid: 3f6af0530190c59e69b19746c1f776ae, type: 2}
 --- !u!50 &1551612990
 Rigidbody2D:
   serializedVersion: 4

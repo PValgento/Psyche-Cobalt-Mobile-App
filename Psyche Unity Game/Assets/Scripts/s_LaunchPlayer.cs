@@ -9,10 +9,11 @@ public class s_LaunchPlayer : sb_PlayerConstruction
     GameObject model;
     GameObject arrow; GameObject target; GameObject missed;
     Slider steering; Text dist;
-    float rotation = 0f;
+    Color sky; Color space; public Material skybox;
+    float rotation = 0f; bool setSkybox = false;
     void Awake()
     {//Start is called before the first frame update
-        model = this.transform.GetChild(0).gameObject;
+        model = this.transform.GetChild(0).gameObject; //camera = GameObject.Find("PlayerCamera").GetComponent<Camera>();
         ctl_PlayerAwake();
         ctl_UpdatePlayerPrefab();
         playerRb = gameObject.GetComponent<Rigidbody2D>();
@@ -20,6 +21,7 @@ public class s_LaunchPlayer : sb_PlayerConstruction
         arrow = GameObject.Find("Arrow"); target = GameObject.Find("Target");
         arrow.transform.position = new Vector3(-7f, 2f, 0f); arrow.transform.parent = this.transform;
         dist = GameObject.Find("distance").GetComponent<Text>(); missed = GameObject.Find("btn_Miss"); missed.SetActive(false);
+        sky = new Color(.85f,.95f,.95f,1f); space = new Color(0f,0f,0f,1f);
     }
     
     void Update()
@@ -37,10 +39,24 @@ public class s_LaunchPlayer : sb_PlayerConstruction
         dist.text = "Distance: " + (int)Vector3.Distance(model.transform.position, target.transform.position);
         //arrow.transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(arrow.transform.position, target.transform.position, 1f, 1f));
         if(this.transform.position.y > target.transform.position.y + 20f)
-        {//You passed it, and rocks don't like to go down...
+        {//You passed it, and rockets don't like to go down...
             Debug.Log("You Missed!");
-            
             missed.SetActive(true);
+        }
+        
+        if(setSkybox)
+        {//Gradually fade in the skybox.
+            RenderSettings.skybox.SetColor("_Tint", Color.Lerp(space, Color.white, model.transform.position.y/450f));
+        }
+        else if (model.transform.position.y > 240f)
+        {//Keep from setting every update.
+            RenderSettings.skybox = skybox;
+            setSkybox = true; 
+            RenderSettings.skybox.SetColor("_Tint", Color.black);
+        }
+        else
+        {//Use regular color skybox.
+            camera.backgroundColor = Color.Lerp(sky, space, model.transform.position.y/240f);
         }
     }
     public void ctl_UpdatePlayerPrefab()
