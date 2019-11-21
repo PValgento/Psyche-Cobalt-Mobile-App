@@ -14,10 +14,13 @@ public class SpaceMovementController : MonoBehaviour
 	Vector2 playerPos;
 	Rigidbody2D rb;
 	
-
-	// Start is called before the first frame update
+	void Awake()
+	{//InitializePlayerPosition
+		this.transform.position = new Vector3(0f, 0f, 0f);
+	}
+	
     void Start()
-    {
+    {//Start is called before the first frame update
 		rb = this.GetComponent<Rigidbody2D>();
 		direction[0] = 1;
 		direction[1] = 0;
@@ -28,10 +31,9 @@ public class SpaceMovementController : MonoBehaviour
 			// Get the Slider Component
 			ThrottleSlider = temp.GetComponent<Slider>();
 
-			// If a Slider Component was found on the GameObject.
+			
 			if (ThrottleSlider != null)
-
-			{
+			{//If a Slider Component was found on the GameObject.
 				// This is a Conditional Statement. 
 				// Basically if volumeLevel isn't null, 
 				// then it uses it's value, 
@@ -45,9 +47,9 @@ public class SpaceMovementController : MonoBehaviour
 		}
 	}
 
-    // Update is called once per frame
+    
     void Update()
-    {
+    {//Update is called once per frame
 		currentThrottle = ThrottleSlider.value;
 		setDirection();
     }
@@ -63,9 +65,7 @@ public class SpaceMovementController : MonoBehaviour
 	}
 
 	public void setDirection()
-	{
-		
-		//If we're NOT over UI we can consider it wanting to change the direction.
+	{//If we're NOT over UI we can consider it wanting to change the direction.
 		if ( !EventSystem.current.IsPointerOverGameObject())
 		{
 			Debug.Log("Input not over UI");
@@ -85,9 +85,7 @@ public class SpaceMovementController : MonoBehaviour
 				//TODO: Rotate the object
 				Vector3 rotVec = new Vector3(direction[0], direction[1], 0);
 				Model.transform.rotation = Quaternion.LookRotation(rotVec);
-
 			}
 		}
 	}
 }
-
