@@ -13,7 +13,7 @@ public class sb_Player : MonoBehaviour
     private Camera camera;
     private bool FirstMove = true;
     private Vector3 mouseCoords = Vector3.zero;
-    private float movementSpeed = 3.2f;
+    private float movementSpeed = 5.2f;
     private bool currentlyMoving = false;
     private bool isPlayerActive = false;
 
