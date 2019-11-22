@@ -12,7 +12,7 @@ public class s_SpacePlayer : sb_PlayerConstruction
 
 	private void Start()
 	{
-		Vector3 startPos = new Vector3(-300, 150, 0);
+		Vector3 startPos = new Vector3(-1000, 150, 0);
 		transform.position = startPos;
 	}
 
