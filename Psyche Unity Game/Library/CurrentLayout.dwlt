@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 7}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 524}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -42,8 +42,8 @@ MonoBehaviour:
     y: 0
     width: 953
     height: 672
-  m_MinSize: {x: 102, y: 124}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -96,8 +96,8 @@ MonoBehaviour:
     y: 0
     width: 242
     height: 672
-  m_MinSize: {x: 204, y: 224}
-  m_MaxSize: {x: 4004, y: 4024}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -124,10 +124,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 953
-  m_MinSize: {x: 787, y: 498}
-  m_MaxSize: {x: 16012, y: 14048}
+  m_MinSize: {x: 777, y: 474}
+  m_MaxSize: {x: 16002, y: 14048}
   vertical: 0
-  controlID: 253
+  controlID: 81
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -147,8 +147,8 @@ MonoBehaviour:
     y: 0
     width: 335
     height: 953
-  m_MinSize: {x: 277, y: 74}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -200,7 +200,7 @@ MonoBehaviour:
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
-  m_LastLoadedLayoutName: Phone View2
+  m_LastLoadedLayoutName: 
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -243,10 +243,10 @@ MonoBehaviour:
     y: 0
     width: 1585
     height: 953
-  m_MinSize: {x: 510, y: 498}
-  m_MaxSize: {x: 12010, y: 14048}
+  m_MinSize: {x: 502, y: 474}
+  m_MaxSize: {x: 12002, y: 14048}
   vertical: 1
-  controlID: 136
+  controlID: 35
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -269,10 +269,10 @@ MonoBehaviour:
     y: 0
     width: 1585
     height: 672
-  m_MinSize: {x: 510, y: 224}
-  m_MaxSize: {x: 12010, y: 4024}
+  m_MinSize: {x: 502, y: 200}
+  m_MaxSize: {x: 12002, y: 4024}
   vertical: 0
-  controlID: 137
+  controlID: 14
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -292,8 +292,8 @@ MonoBehaviour:
     y: 0
     width: 390
     height: 672
-  m_MinSize: {x: 204, y: 224}
-  m_MaxSize: {x: 4004, y: 4024}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -322,9 +322,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1080
-    y: 1598
+    y: 1591
     width: 1583
-    height: 254
+    height: 261
   m_PersistentViewDataDictionary: {fileID: 0}
   m_MixersTreeState:
     scrollPos: {x: 0, y: 0}
@@ -400,7 +400,7 @@ MonoBehaviour:
       splitSize: 6
       xOffset: 0
     m_HorizontalSplitter:
-      ID: 209
+      ID: 3253
       splitterInitialOffset: 0
       currentActiveSplitter: -1
       realSizes: db01000055040000
@@ -508,21 +508,21 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Visual/Environments/SimpleSpace
+    - Assets/Visual
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Visual/Environments/SimpleSpace
+  - Assets/Visual
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /mnt/Applications/Projects/Unity/ASU-Psyche/Psyche-Cobalt-Mobile-App/Psyche
     Unity Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 80}
-    m_SelectedIDs: 24300000
-    m_LastClickedID: 12324
-    m_ExpandedIDs: 00000000a42f0000c82f0000f22f00008e300000a230000000ca9a3b
+    scrollPos: {x: 0, y: 64}
+    m_SelectedIDs: 72270000
+    m_LastClickedID: 10098
+    m_ExpandedIDs: 000000004c26000082260000ac2600007227000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -550,7 +550,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a42f0000c82f0000f22f00008e300000a230000000ca9a3b
+    m_ExpandedIDs: 000000004c26000082260000ac260000722700008c270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -578,7 +578,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c62300006c220000
+    m_ExpandedInstanceIDs: c62300006c2200004e310000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -594,7 +594,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 3}
+      m_ClientGUIView: {fileID: 0}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -669,9 +669,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 62240000
       m_LastClickedID: 0
-      m_ExpandedIDs: 20cbffff44eaffff6ceaffff7eeaffffb4ebffffb8ebffffc2ebffffccebffff68efffff56f2ffff06f5ffffd6fbffff4a320000c24200000c570000
+      m_ExpandedIDs: aaddffffd6ddffffecddffff28dfffff34dfffff44dfffff4edfffff5edfffff7ce0ffff1ee1ffff48e2ffffd4f1ffffeef1ffff94f2ffffbcf2ffffcef2ffff2cf4ffff56f4ffff84f4ffffb2f4ffffdef4ffff70f8ffffd6fbffffee33000096550000f25500002a5600002e5600006e5700003c5900007a5900005a62000098620000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -768,7 +768,7 @@ MonoBehaviour:
     speed: 2
     m_Value: 1
   m_ShowGlobalGrid: 1
-  m_LastSceneViewRotation: {x: 0.07638599, y: 0.031991903, z: -0.002452103, w: 0.99656194}
+  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 

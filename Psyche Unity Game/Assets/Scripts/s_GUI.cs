@@ -8,7 +8,6 @@ public class s_GUI : MonoBehaviour
 {
     private Button setButton;
     public string buttonType = "";
-    
     void Start()
     {//Start is called before the first frame update
         if(buttonType == "QUIT")

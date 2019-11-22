@@ -5,10 +5,9 @@ using UnityEngine;
 public class s_MenuCamera : MonoBehaviour
 {
     protected Vector3 rotateSpeed = new Vector3(1f, 2f, -1f);
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Awake()
+    {// Start is called before the first frame update
+        PlayerPrefs.SetInt("Score", 0);
     }
 
     // Update is called once per frame

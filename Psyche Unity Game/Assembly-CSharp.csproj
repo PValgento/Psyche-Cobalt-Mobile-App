@@ -62,9 +62,11 @@
      <Compile Include="Assets\Scripts\s_GUI.cs" />
      <Compile Include="Assets\Scripts\s_LaunchPlayer.cs" />
      <Compile Include="Assets\Scripts\s_MenuCamera.cs" />
+     <Compile Include="Assets\Scripts\s_Sidebar.cs" />
      <Compile Include="Assets\Scripts\s_SpacePlayer.cs" />
      <Compile Include="Assets\Scripts\sb_Camera.cs" />
      <Compile Include="Assets\Scripts\sb_GUI_CleanRoom.cs" />
+     <Compile Include="Assets\Scripts\sb_NavigationController.cs" />
      <Compile Include="Assets\Scripts\sb_Player.cs" />
      <Compile Include="Assets\Scripts\sb_PlayerConstruction.cs" />
      <Compile Include="Assets\SetVolume.cs" />
