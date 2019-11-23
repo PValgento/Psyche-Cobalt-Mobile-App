@@ -3,7 +3,7 @@ import {
     View,
     Text,
     Image,
-    ImageBackground
+    ImageBackground,
 } from 'react-native';
 import {WebView} from 'react-native-webview';
 import {
@@ -26,6 +26,11 @@ import {Fonts} from '../components/Fonts';
 
 
 class GameScreen extends Component {
+	//Hiding the StackNavigator Header, not the one for the side menu
+	static navigationOptions = {
+		header: null
+	};
+	
     render() {
         return (
            <Container>
@@ -58,9 +63,17 @@ class GameScreen extends Component {
                         <Text style={GameStyle.pageBodyText}>
                             Welcome to our Capstone Game! Click on the 'Start Game' button to enter the game!
                         </Text>
-
-                
-                        
+						
+						{/*Button to enter unity game*/}
+						<Button primary
+							/*Added Styles here instead of a separate style.js file, because for some reason it is not accepting it*/
+							style={GameStyle.buttonLook, {justifyContent: 'center', alignSelf: 'center', width: '50%', backgroundColor: '#f79f27ff'}}
+							onPress={() => this.props.navigation.navigate('Player')}
+						>
+							<Text style={GameStyle.cardText}>
+								Start Game
+							</Text>
+                        </Button>
                        
         
 
