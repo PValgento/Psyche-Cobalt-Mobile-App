@@ -629,17 +629,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CameraController.cs" />
     <Compile Include="Assets\FuelOnClick.cs" />
+    <Compile Include="Assets\GUI_Navigator.cs" />
+    <Compile Include="Assets\s_CameraController.cs" />
     <Compile Include="Assets\Scripts\s_CleanGUI.cs" />
     <Compile Include="Assets\Scripts\s_CleanPlayer.cs" />
     <Compile Include="Assets\Scripts\s_GameController.cs" />
     <Compile Include="Assets\Scripts\s_GUI.cs" />
     <Compile Include="Assets\Scripts\s_LaunchPlayer.cs" />
     <Compile Include="Assets\Scripts\s_MenuCamera.cs" />
+    <Compile Include="Assets\Scripts\s_Sidebar.cs" />
     <Compile Include="Assets\Scripts\s_SpacePlayer.cs" />
     <Compile Include="Assets\Scripts\sb_Camera.cs" />
     <Compile Include="Assets\Scripts\sb_GUI_CleanRoom.cs" />
+    <Compile Include="Assets\Scripts\sb_NavigationController.cs" />
     <Compile Include="Assets\Scripts\sb_Player.cs" />
     <Compile Include="Assets\Scripts\sb_PlayerConstruction.cs" />
     <Compile Include="Assets\SetVolume.cs" />
