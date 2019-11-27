@@ -18,6 +18,8 @@ public class sb_PlayerConstruction : MonoBehaviour
     protected GameObject prefab3;
     [SerializeField]
     protected GameObject prefabRocket;
+    [SerializeField]
+    protected GameObject cFH;
 
     protected Transform player_Model;
     protected Transform modelChild;
@@ -59,7 +61,11 @@ public class sb_PlayerConstruction : MonoBehaviour
             else if(prefabIndex == 2)
                 selectedPrefab = prefab3;
             else{}
-            GameObject prefabObj = Instantiate(selectedPrefab, this.transform.position, this.transform.rotation);
+
+            //GameObject prefabObj = Instantiate(selectedPrefab, this.transform.position, this.transform.rotation);
+            //prefabObj.transform.parent = modelChild;//this.transform;
+            //player_Model = prefabObj.transform;
+            GameObject prefabObj = Instantiate(selectedPrefab, new Vector3(0f, 10.7f, 0f)/*this.transform.position*/, this.transform.rotation);
             prefabObj.transform.parent = modelChild;//this.transform;
             player_Model = prefabObj.transform;
         }

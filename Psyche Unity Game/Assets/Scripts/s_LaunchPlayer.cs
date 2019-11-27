@@ -62,7 +62,10 @@ public class s_LaunchPlayer : sb_PlayerConstruction
     public void ctl_UpdatePlayerPrefab()
     {
         this.ctl_UsePlayerPrefs();
-        GameObject rocketObj = Instantiate(prefabRocket, this.transform.position + new Vector3(0f, -3f, 0f), this.transform.rotation);
+        //GameObject rocketObj = Instantiate(prefabRocket, this.transform.position + new Vector3(0f, -3f, 0f), this.transform.rotation);
+        //rocketObj.transform.parent = modelChild;
+        //cFH testing
+        GameObject rocketObj = Instantiate(cFH, this.transform.position + new Vector3(0f, 2.07f, 0f), Quaternion.Euler(0f, 90f, 0f));
         rocketObj.transform.parent = modelChild;
     }
     void OnTriggerEnter2D(Collider2D col)

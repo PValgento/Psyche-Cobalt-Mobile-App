@@ -8,7 +8,7 @@ public class s_Sidebar : MonoBehaviour
 {
     public Button menu;
     public GameObject sidebar;
-
+    public bool isScoreEnabled = true;
     protected Button sideHome;
     protected Button sideOption;
     protected Button sideLearn;
@@ -34,16 +34,24 @@ public class s_Sidebar : MonoBehaviour
 
         //This MUST be last, cuz Unity can't find hidden objects.
         menu_Options.SetActive(false); sidebar.SetActive(false);
-        StartCoroutine("ScoreTable");
+        StartCoroutine("ScoreTable"); sideScore.text = "";
     }
     IEnumerator ScoreTable()
     {
         int score = 0;
         while(true)
         {//Update the score every 2 seconds.
-            score = PlayerPrefs.GetInt("Score"); //SetInt is set to 0 in mainmenucamera to stop possible nulls.
-            Debug.Log("Score: " + score);
-            sideScore.text = "Score: " + score;
+            if(isScoreEnabled)
+            {
+                score = PlayerPrefs.GetInt("Score"); //SetInt is set to 0 in mainmenucamera to stop possible nulls.
+                Debug.Log("Score: " + score);
+                sideScore.text = "Score: " + score;
+            }
+            else
+            {
+                Debug.Log("Score Disabled");
+                sideScore.text = "";
+            }
             yield return new WaitForSeconds(2);
         }
     }

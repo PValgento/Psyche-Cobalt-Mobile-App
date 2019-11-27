@@ -1593,6 +1593,7 @@ MonoBehaviour:
   prefab3: {fileID: 8617948562848503262, guid: 6cbab5b67668f4a38b43cb30518cbf37, type: 3}
   prefabRocket: {fileID: 6334809962852456098, guid: 820e6b8de0c01be8d8377d6138e4fe71,
     type: 3}
+  cFH: {fileID: 3933383158522988703, guid: 94037c89c48b46bf89e19b62fe707c0d, type: 3}
   skybox: {fileID: 2100000, guid: 3f6af0530190c59e69b19746c1f776ae, type: 2}
 --- !u!50 &1551612990
 Rigidbody2D:
@@ -1998,6 +1999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 313c93b14fd4a5e01a967e32ea06b346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isScoreEnabled: 1
 --- !u!4 &2033432127
 Transform:
   m_ObjectHideFlags: 0
