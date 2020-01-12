@@ -22,11 +22,12 @@ public class s_LaunchPlayer : sb_PlayerConstruction
         arrow.transform.position = new Vector3(-7f, 2f, 0f); arrow.transform.parent = this.transform;
         dist = GameObject.Find("distance").GetComponent<Text>(); missed = GameObject.Find("btn_Miss"); missed.SetActive(false);
         sky = new Color(.85f,.95f,.95f,1f); space = new Color(0f,0f,0f,1f);
+        ctl_SetCameraPosition(new Vector3(0f, 25f, -40f));
     }
-    
+
     void Update()
     {//Update is called once per frame
-        
+
     }
     void FixedUpdate()
     {//Fixed Update is when physics are calculated so want to do physics stuff here...
@@ -43,7 +44,7 @@ public class s_LaunchPlayer : sb_PlayerConstruction
             Debug.Log("You Missed!");
             missed.SetActive(true);
         }
-        
+
         if(setSkybox)
         {//Gradually fade in the skybox.
             RenderSettings.skybox.SetColor("_Tint", Color.Lerp(space, Color.white, model.transform.position.y/450f));
@@ -51,7 +52,7 @@ public class s_LaunchPlayer : sb_PlayerConstruction
         else if (model.transform.position.y > 240f)
         {//Keep from setting every update.
             RenderSettings.skybox = skybox;
-            setSkybox = true; 
+            setSkybox = true;
             RenderSettings.skybox.SetColor("_Tint", Color.black);
         }
         else
@@ -61,7 +62,7 @@ public class s_LaunchPlayer : sb_PlayerConstruction
     }
     public void ctl_UpdatePlayerPrefab()
     {
-        this.ctl_UsePlayerPrefs();
+        this.ctl_UsePlayerPrefs(new Vector3(0f, 10.7f, 0f));
         //GameObject rocketObj = Instantiate(prefabRocket, this.transform.position + new Vector3(0f, -3f, 0f), this.transform.rotation);
         //rocketObj.transform.parent = modelChild;
         //cFH testing

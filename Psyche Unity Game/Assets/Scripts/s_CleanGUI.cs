@@ -94,6 +94,7 @@ public class s_CleanGUI : MonoBehaviour
                 PlayerPrefs.SetInt("Engine", -1);
 
                 PlayerPrefs.SetInt("Craft", partId);
+		//SelectCraft();
                 //playerObj.GetComponent<s_CleanPlayer>().ctl_UpdatePlayerPrefab();
                 break;
             }

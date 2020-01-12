@@ -9,7 +9,7 @@ public class sb_PlayerConstruction : MonoBehaviour
     protected int sensorIndex = 0;
     protected int engineIndex = 0;
     protected int prefabIndex = 0;
-    
+
     [SerializeField]
     protected GameObject prefab1;
     [SerializeField]
@@ -36,17 +36,18 @@ public class sb_PlayerConstruction : MonoBehaviour
         engineIndex = PlayerPrefs.GetInt("Engine");
 
         prefabIndex = PlayerPrefs.GetInt("Craft");
-        ctl_UsePlayerPrefs();
+        ctl_UsePlayerPrefs(new Vector3(0f,0f,0f)); //Default
     }
     protected void ctl_PlayerAwake()
     {
+        //Get the empty model object so all graphics elements of the ship can be packaged together.
         modelChild = this.transform.GetChild(0);
     }
-    protected void ctl_UsePlayerPrefs()
+    protected void ctl_UsePlayerPrefs(Vector3 modelPos)
     {
         prefabIndex = PlayerPrefs.GetInt("Craft");
         Debug.Log("Player PlayerPref Index:" + prefabIndex);
-        
+
         foreach(Transform child in modelChild)
         {//Destroy all previously set children
             GameObject.Destroy(child.gameObject);
@@ -65,9 +66,10 @@ public class sb_PlayerConstruction : MonoBehaviour
             //GameObject prefabObj = Instantiate(selectedPrefab, this.transform.position, this.transform.rotation);
             //prefabObj.transform.parent = modelChild;//this.transform;
             //player_Model = prefabObj.transform;
-            GameObject prefabObj = Instantiate(selectedPrefab, new Vector3(0f, 10.7f, 0f)/*this.transform.position*/, this.transform.rotation);
+            GameObject prefabObj = Instantiate(selectedPrefab, new Vector3(0f, 0f/*10.7f*/, 0f)/*this.transform.position*/, this.transform.rotation);
             prefabObj.transform.parent = modelChild;//this.transform;
             player_Model = prefabObj.transform;
+            player_Model.transform.localPosition = modelPos;
         }
         else
         {//Building custom craft.
@@ -75,7 +77,7 @@ public class sb_PlayerConstruction : MonoBehaviour
             solarIndex = PlayerPrefs.GetInt("Solar");
             sensorIndex = PlayerPrefs.GetInt("Sensor");
             engineIndex = PlayerPrefs.GetInt("Engine");
-            
+
             //Temp: prefab1
             GameObject selectedPrefab = prefab1; //default
             GameObject prefabObj = Instantiate(selectedPrefab, this.transform.position, this.transform.rotation);
@@ -87,5 +89,9 @@ public class sb_PlayerConstruction : MonoBehaviour
         camera = cameraObj.GetComponent<Camera>();
 
         this.transform.position = new Vector3(0f, 3.1f, 0f);
+    }
+    protected void ctl_SetCameraPosition(Vector3 newPos)
+    {//Call to set camera position.
+      camera.transform.localPosition = newPos;
     }
 }
