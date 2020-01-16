@@ -37,10 +37,10 @@ npm-debug.log
 yarn-error.log
 
 # unity
-unity/
+# unity/
 
 # Unity Export
-android/UnityExport/
+# android/UnityExport/
 
 # BUCK
 buck-out/
