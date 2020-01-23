@@ -1,12 +1,1 @@
 *.pbxproj -text
-*.info filter=lfs diff=lfs merge=lfs -text
-*.resource filter=lfs diff=lfs merge=lfs -text
-*.asset filter=lfs diff=lfs merge=lfs -text
-*.assets filter=lfs diff=lfs merge=lfs -text
-assetDatabase3 filter=lfs diff=lfs merge=lfs -text
-ee00facc98c626eada0a90cda6783861 filter=lfs diff=lfs merge=lfs -text
-fc61a0cbc4e81bce394c276a1a87d8a1 filter=lfs diff=lfs merge=lfs -text
-UnityAds filter=lfs diff=lfs merge=lfs -text
-*.tiff filter=lfs diff=lfs merge=lfs -text
-*.tga filter=lfs diff=lfs merge=lfs -text
-*.hdr filter=lfs diff=lfs merge=lfs -text
