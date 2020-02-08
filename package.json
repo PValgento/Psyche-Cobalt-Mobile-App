@@ -12,7 +12,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@asmadsen/react-native-unity-view": "^0.0.6",
+    "@asmadsen/react-native-unity-view": "0.0.3",
     "bufferutil": "^4.0.1",
     "canvas": "^2.6.1",
     "eslint": "^6.8.0",
