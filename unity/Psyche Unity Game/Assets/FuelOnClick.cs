@@ -17,8 +17,7 @@ public class FuelOnClick : MonoBehaviour
 	// Start is called once when object created
 	void Start()
 	{
-		
-		GameObject temp = GameObject.Find("Slider_Throttle");
+		GameObject temp = GameObject.Find("ThrottleSlider");
 		if (temp != null)
 		{
 			// Get the Slider Component
@@ -26,18 +25,9 @@ public class FuelOnClick : MonoBehaviour
 
 			// If a Slider Component was found on the GameObject.
 			if (slider != null)
-
-			{
-				// This is a Conditional Statement. 
-				// Basically if volumeLevel isn't null, 
-				// then it uses it's value, 
-				// otherwise it uses the DefaultVolumeLevel that we've set above.
 				slider.normalizedValue = PlayerPrefs.HasKey("VolumeLevel") ? PlayerPrefs.GetFloat("VolumeLevel") : 0;
-			}
 			else
-			{
 				Debug.LogError("[" + temp.name + "] - Does not contain a Slider Component!");
-			}
 		}
 	}
 	

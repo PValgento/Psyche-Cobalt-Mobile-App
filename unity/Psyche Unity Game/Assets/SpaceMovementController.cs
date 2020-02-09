@@ -9,8 +9,10 @@ public class SpaceMovementController : MonoBehaviour
 	public GameObject Model;
 	public float MaxSpeed;
 	public float ThrottleCoefficient;
+	public Fuel_Manager fuelManager;
+	public float fuelCoefficient;
+	public Slider ThrottleSlider;
 
-	Slider ThrottleSlider;
 	float currentThrottle;
 	Vector2 speed;
 	Vector2 direction;
@@ -39,6 +41,9 @@ public class SpaceMovementController : MonoBehaviour
 
 		// Get the Throttle Element of the UI
 		getThrottleElement();
+
+		// Initially set the direction
+		direction = new Vector2(1, 0);
 	}
 
 	// Update is called once per frame
@@ -54,6 +59,7 @@ public class SpaceMovementController : MonoBehaviour
 		speed = rb.velocity;
 
 		moveShip(direction, currentThrottle*ThrottleCoefficient);
+		fuelManager.AdjustFuel(-currentThrottle * ThrottleCoefficient * fuelCoefficient);
 
 		speedLimit();
 	}
