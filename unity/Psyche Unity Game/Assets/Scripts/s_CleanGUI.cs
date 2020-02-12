@@ -10,7 +10,7 @@ public class s_CleanGUI : MonoBehaviour
     private GameObject playerObj;
     public string buttonType = "";
     public int partId = 0; private int type = 0;
-    
+
     void Awake()
     {
         playerObj = GameObject.Find("PlayerObj");
@@ -88,10 +88,10 @@ public class s_CleanGUI : MonoBehaviour
             case 5:
             {//Premade
                 //Don't make out of parts...
-                PlayerPrefs.SetInt("Body", -1);
-                PlayerPrefs.SetInt("Solar", -1);
-                PlayerPrefs.SetInt("Sensor", -1);
-                PlayerPrefs.SetInt("Engine", -1);
+                PlayerPrefs.SetInt("Body", 0);//-1
+                PlayerPrefs.SetInt("Solar", 0);//-1
+                PlayerPrefs.SetInt("Sensor", 0);//-1
+                PlayerPrefs.SetInt("Engine", 0);//-1
 
                 PlayerPrefs.SetInt("Craft", partId);
 		//SelectCraft();

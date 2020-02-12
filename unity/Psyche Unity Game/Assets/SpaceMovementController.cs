@@ -24,9 +24,9 @@ public class SpaceMovementController : MonoBehaviour
 		MaxSpeed = 12;
 		ThrottleCoefficient = 5;
 		currentThrottle = 0;
-		
+
 		// Enable Model's Collider
-		var playerCollider = Model.GetComponentInChildren<Collider>();
+		var playerCollider = Model.GetComponentInChildren<Collider2D>();
 		playerCollider.enabled = true;
 	}
 
@@ -82,8 +82,13 @@ public class SpaceMovementController : MonoBehaviour
 				direction[0] = mousePos.x - transform.position.x;
 				direction[1] = mousePos.y - transform.position.y;
 				direction = direction.normalized;
-				Vector3 rotVec = new Vector3(direction[0], direction[1], 0);
-				Model.transform.rotation = Quaternion.LookRotation(rotVec);
+				Vector3 rotVec = new Vector3(direction[0], 0, direction[1]);
+
+				//Vector3 rotVec = new Vector3(direction[0], direction[1], 0);
+				//Model.transform.rotation = Quaternion.LookRotation(rotVec);
+				Vector3 dir = mousePos - this.transform.position;
+        Quaternion rot = Quaternion.AngleAxis(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector3.up);
+        Model.transform.rotation = Quaternion.Euler(new Vector3(rot.eulerAngles.x, rot.eulerAngles.z, rot.eulerAngles.y-90f));
 			}
 		}
 		// If we're seeing mouse input
@@ -96,8 +101,13 @@ public class SpaceMovementController : MonoBehaviour
 				direction[0] = mousePos.x - transform.position.x;
 				direction[1] = mousePos.y - transform.position.y;
 				direction = direction.normalized;
-				Vector3 rotVec = new Vector3(direction[0], direction[1], 0);
-				Model.transform.rotation = Quaternion.LookRotation(rotVec);
+				Vector3 rotVec = new Vector3(direction[0], 0, direction[1]);
+				
+				//Vector3 rotVec = new Vector3(direction[0], direction[1], 0);
+				//Model.transform.rotation = Quaternion.LookRotation(rotVec);
+				Vector3 dir = mousePos - this.transform.position;
+        Quaternion rot = Quaternion.AngleAxis(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector3.up);
+        Model.transform.rotation = Quaternion.Euler(new Vector3(rot.eulerAngles.x, rot.eulerAngles.z, rot.eulerAngles.y-90f));
 			}
 		}
 	}
@@ -134,7 +144,3 @@ public class SpaceMovementController : MonoBehaviour
 		return results.Count > 0;
 	}
 }
-
-
-
-

@@ -9,6 +9,7 @@ public class s_Rocket : MonoBehaviour
     public GameObject rSideBooster;
     public GameObject lFairing;
     public GameObject rFairing;
+    public GameObject probe; private float delay = 0.01f;
 
     public bool isSideDetached = false;
     public bool isFairingDetached = false;
@@ -19,9 +20,21 @@ public class s_Rocket : MonoBehaviour
         //StartCoroutine("DetachBoosters");
         //StartCoroutine("DetachFairings");
         //StartCoroutine("DetachCore");
+
+    }
+    void Awake()
+    {
+
     }
     void Update()
     {
+        if(delay > 0f) { delay -= Time.deltaTime; }
+        else
+        {//Have to add a delay and do in update, because the object doesn't exist correctly yet or something to do this is Awake()
+            Transform temp = this.transform.parent;
+            probe = temp.GetChild(0).gameObject; //Get the probe object.
+            probe.SetActive(false);
+        }
         if(this.transform.position.y > 200f)
             StartCoroutine("DetachBoosters");
         if(this.transform.position.y > 240f)
@@ -64,6 +77,7 @@ public class s_Rocket : MonoBehaviour
         float timer = 10f;
         float detachSpeed = 0.5f;
         isFairingDetached = true;
+        probe.SetActive(true);
         //lFairing.transform.parent = null;
         //rFairing.transform.parent = null;
         while(isFairingDetached)

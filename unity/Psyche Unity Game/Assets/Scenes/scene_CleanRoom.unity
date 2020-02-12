@@ -1164,7 +1164,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -100
   m_Sprite: {fileID: 21300000, guid: 21fead298bcc48c3da8dff10a0c8046b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3165,7 +3165,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1486060724}
   m_OnClick:
     m_PersistentCalls:
@@ -4125,7 +4125,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720777221}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 7.6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4765,9 +4765,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Sensor
-
-'
+  m_Text: "Sensor(Disabled)\x13\n"
 --- !u!222 &1856306741
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5009,7 +5007,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096299554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -8, z: 0}
+  m_LocalPosition: {x: 0, y: 7.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 628050422}
@@ -5028,12 +5026,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b9c3df5a9a117c2bf4d97e75f9425c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab1: {fileID: 2112775926296928574, guid: 968fa4902f6946a87aecaebf0766e641, type: 3}
-  prefab2: {fileID: 4132323396985850792, guid: 472c3e127d98b9543a6b5e059a1e1484, type: 3}
-  prefab3: {fileID: 8617948562848503262, guid: 6cbab5b67668f4a38b43cb30518cbf37, type: 3}
-  prefabRocket: {fileID: 6334809962852456098, guid: 820e6b8de0c01be8d8377d6138e4fe71,
-    type: 3}
-  cFH: {fileID: 0}
 --- !u!1 &2108699131
 GameObject:
   m_ObjectHideFlags: 0

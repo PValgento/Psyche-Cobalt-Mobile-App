@@ -13,7 +13,7 @@ EditorBuildSettings:
     guid: b4e36bca2620f62b4972ed7e58b23fec
   - enabled: 1
     path: Assets/Scenes/scene_CleanRoom.unity
-    guid: bebde480fdedc1ee1a59b6fd46f13229
+    guid: f5ae8adb4924b5deca2ee8c1c3175473
   - enabled: 1
     path: Assets/Scenes/scene_Ground.unity
     guid: c1b055a46bd4affa49968e73c99b6948

@@ -72,8 +72,11 @@ public class s_LaunchPlayer : sb_PlayerConstruction
     void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("You hit the target +Score!");
-        PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score")+100);
-        SceneManager.LoadScene(4);
+        if(col.name == "Target")
+        {
+          PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score")+100);
+          SceneManager.LoadScene(4);
+        }
     }
     public void RestartLevel()
     {
