@@ -35,11 +35,11 @@ public class s_Rocket : MonoBehaviour
             probe = temp.GetChild(0).gameObject; //Get the probe object.
             probe.SetActive(false);
         }
-        if(this.transform.position.y > 200f)
+        if(this.transform.position.y > 200f)//was 200f
             StartCoroutine("DetachBoosters");
-        if(this.transform.position.y > 240f)
+        if(this.transform.position.y > 320f)//was 240f
             StartCoroutine("DetachFairings");
-        if(this.transform.position.y > 300f)
+        if(this.transform.position.y > 380f)//was 300f
             StartCoroutine("DetachCore");
     }
 

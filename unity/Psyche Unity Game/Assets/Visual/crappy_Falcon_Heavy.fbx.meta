@@ -116,7 +116,17 @@ ModelImporter:
     4300022: Merlin1-D.003
     4300024: FairingR
     10800000: Light
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: af018fe2644910d4097d1ed322f603d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: af018fe2644910d4097d1ed322f603d5, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
