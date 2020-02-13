@@ -221,7 +221,12 @@ public class sb_GUI_CleanRoom_Arrows : MonoBehaviour
             for(int i = 0; i < premadeOptions.Length; i++)
             {
                 activeButtons.Add(premadeOptions[i]);
-            }/*
+            }
+            //Show premade craft when button is clicked.
+            PlayerPrefs.SetInt("Craft", 0);
+            GameObject.Find("PlayerObj").GetComponent<s_CleanPlayer>().ctl_UpdatePlayerPrefab();
+
+            /*
             activeButtons.Add(spacerButton);
             activeButtons.Add(bodyButton);
             activeButtons.Add(solarButton);
@@ -244,6 +249,10 @@ public class sb_GUI_CleanRoom_Arrows : MonoBehaviour
             activeButtons.Add(customButton);
             activeButtons.Add(spacerButton);
             isCustomArrows = true;
+
+            //Show custom craft when button is clicked.
+            PlayerPrefs.SetInt("Craft", -1);
+            GameObject.Find("PlayerObj").GetComponent<s_CleanPlayer>().ctl_UpdatePlayerPrefab();
             /*
             activeButtons.Add(spacerButton);
             activeButtons.Add(bodyButton);
