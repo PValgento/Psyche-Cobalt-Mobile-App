@@ -52,15 +52,33 @@ public class sb_PlayerConstruction : MonoBehaviour
       cFH = Resources.Load<GameObject>("Prefabs/crappy_Falcon_Heavy Variant");// as GameObject;
 
       //Load Component Prefabs into List
-      bodyList.Add(Resources.Load<GameObject>("Body/BodyTemplate"));// as GameObject;
-      bodyList.Add(Resources.Load<GameObject>("Body/Body2"));
-      bodyList.Add(Resources.Load<GameObject>("Body/Body3"));
-      sideList.Add(Resources.Load<GameObject>("SidePanels/SideTemplate"));// as GameObject;
+      //bodyList.Add(Resources.Load<GameObject>("Body/BodyTemplate"));// as GameObject;
+      bodyList.Add(Resources.Load<GameObject>("Body/Body-DarkPink"));
+      bodyList.Add(Resources.Load<GameObject>("Body/Body-DarkPurple"));
+      bodyList.Add(Resources.Load<GameObject>("Body/Body-Orange"));
+      bodyList.Add(Resources.Load<GameObject>("Body/Body-Pink"));
+      bodyList.Add(Resources.Load<GameObject>("Body/Body-Purple"));
+      bodyList.Add(Resources.Load<GameObject>("Body/Body-White"));
+      //bodyList.Add(Resources.Load<GameObject>("Body/Body2"));
+      //bodyList.Add(Resources.Load<GameObject>("Body/Body3"));
+      //sideList.Add(Resources.Load<GameObject>("SidePanels/SideTemplate"));// as GameObject;
+      sideList.Add(Resources.Load<GameObject>("SidePanels/Side-DarkPink"));
+      sideList.Add(Resources.Load<GameObject>("SidePanels/Side-DarkPurple"));
+      sideList.Add(Resources.Load<GameObject>("SidePanels/Side-Orange"));
+      sideList.Add(Resources.Load<GameObject>("SidePanels/Side-Pink"));
+      sideList.Add(Resources.Load<GameObject>("SidePanels/Side-Purple"));
+      sideList.Add(Resources.Load<GameObject>("SidePanels/Side-White"));
       sideList.Add(Resources.Load<GameObject>("SidePanels/Side2"));
-      sideList.Add(Resources.Load<GameObject>("SidePanels/Side3"));
-      engineList.Add(Resources.Load<GameObject>("Engine/EngineTemplate"));// as GameObject;
-      engineList.Add(Resources.Load<GameObject>("Engine/Engine2"));
-      engineList.Add(Resources.Load<GameObject>("Engine/Engine3"));
+      //sideList.Add(Resources.Load<GameObject>("SidePanels/Side3"));
+      //engineList.Add(Resources.Load<GameObject>("Engine/EngineTemplate"));// as GameObject;
+      engineList.Add(Resources.Load<GameObject>("Engine/Engine-DarkPink"));
+      engineList.Add(Resources.Load<GameObject>("Engine/Engine-DarkPurple"));
+      engineList.Add(Resources.Load<GameObject>("Engine/Engine-Orange"));
+      engineList.Add(Resources.Load<GameObject>("Engine/Engine-Pink"));
+      engineList.Add(Resources.Load<GameObject>("Engine/Engine-Purple"));
+      engineList.Add(Resources.Load<GameObject>("Engine/Engine-White"));
+      //engineList.Add(Resources.Load<GameObject>("Engine/Engine2"));
+      //engineList.Add(Resources.Load<GameObject>("Engine/Engine3"));
 
       //Post Loading Prefabs
       Debug.Log("End of Player Awakening...");
@@ -142,6 +160,48 @@ public class sb_PlayerConstruction : MonoBehaviour
         //camera = cameraObj.GetComponent<Camera>();
 
         //this.transform.position = modelPos;//new Vector3(0f, 3.1f, 0f);
+    }
+    protected void ctl_CleanSwitchCraftSelection(int pn_Switch, string craftPart)
+    {
+        if(craftPart == "BODY")
+        {
+            bodyIndex = PlayerPrefs.GetInt("Body");
+            if(pn_Switch == 0) bodyIndex--;
+            else if(pn_Switch == 1) bodyIndex++;
+            else{}
+
+            if(bodyIndex < 0) PlayerPrefs.SetInt("Body", bodyList.Count - 1);
+            else if(bodyIndex >= bodyList.Count) PlayerPrefs.SetInt("Body", 0);
+            else{ PlayerPrefs.SetInt("Body", bodyIndex); }
+            Debug.Log("Body Selected:" + PlayerPrefs.GetInt("Body"));
+        }
+        else if(craftPart == "SIDE")
+        {
+            solarIndex = PlayerPrefs.GetInt("Solar");
+            if(pn_Switch == 0) solarIndex--;
+            else if(pn_Switch == 1) solarIndex++;
+            else{}
+
+            if(solarIndex < 0) PlayerPrefs.SetInt("Solar", sideList.Count - 1);
+            else if(solarIndex >= sideList.Count) PlayerPrefs.SetInt("Solar", 0);
+            else{ PlayerPrefs.SetInt("Solar", solarIndex); }
+            Debug.Log("Solar Selected:" + PlayerPrefs.GetInt("Solar"));
+        }
+        else if(craftPart == "ENGINE")
+        {
+            engineIndex = PlayerPrefs.GetInt("Engine");
+            if(pn_Switch == 0) engineIndex--;
+            else if(pn_Switch == 1) engineIndex++;
+            else{}
+
+            if(engineIndex < 0) PlayerPrefs.SetInt("Engine", engineList.Count - 1);
+            else if(engineIndex >= engineList.Count) PlayerPrefs.SetInt("Engine", 0);
+            else{ PlayerPrefs.SetInt("Engine", engineIndex); }
+            Debug.Log("Engine Selected:" + PlayerPrefs.GetInt("Engine"));
+        }
+        else{
+          //If no data do nothing.
+        }
     }
     protected void ctl_SetCameraPosition(Vector3 newPos)
     {//Call to set camera position.
