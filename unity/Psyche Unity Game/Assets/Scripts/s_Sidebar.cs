@@ -19,10 +19,10 @@ public class s_Sidebar : MonoBehaviour
     {//Get all the objects.
         menu = GameObject.Find("btn_Menu").GetComponent<Button>();
         sideScore = GameObject.Find("txt_Score").GetComponent<Text>();
-        menu_Options = GameObject.Find("menu_Options"); 
+        menu_Options = GameObject.Find("menu_Options");
         menu.onClick.AddListener(ToggleSideBar);
-        
-        sidebar = GameObject.Find("menu_Sidebar"); 
+
+        sidebar = GameObject.Find("menu_Sidebar");
         sideHome = GameObject.Find("btn_Home").GetComponent<Button>();
         sideHome.onClick.AddListener(GoHome);
         sideOption = GameObject.Find("btn_Options").GetComponent<Button>();
@@ -36,6 +36,21 @@ public class s_Sidebar : MonoBehaviour
         menu_Options.SetActive(false); sidebar.SetActive(false);
         StartCoroutine("ScoreTable"); sideScore.text = "";
     }
+
+    private bool isNotFirstFrame = false;
+    void Update()
+    {//This is code is to fix/call methods that don't seem to work Unity's Awake/Start methods, even with everything declared & existing no amount of calling the methods seems to do anything.
+        if(isNotFirstFrame)
+        {
+            //Find a set player's game volume from PlayerPrefs
+            this.gameObject.GetComponent<SetVolume>().SetAudioLevel();
+            //Display the stored score value.
+            sideScore.text = "Score: " + PlayerPrefs.GetInt("Score");
+        }
+        else
+            isNotFirstFrame = true;
+    }
+
     IEnumerator ScoreTable()
     {
         int score = 0;
@@ -43,9 +58,12 @@ public class s_Sidebar : MonoBehaviour
         {//Update the score every 2 seconds.
             if(isScoreEnabled)
             {
-                score = PlayerPrefs.GetInt("Score"); //SetInt is set to 0 in mainmenucamera to stop possible nulls.
-                Debug.Log("Score: " + score);
-                sideScore.text = "Score: " + score;
+                if(score != PlayerPrefs.GetInt("Score"))
+                {//This is flickering when updating, only going to update when score has changed.
+                  score = PlayerPrefs.GetInt("Score"); //SetInt is set to 0 in mainmenucamera to stop possible nulls.
+                  Debug.Log("Score: " + score);
+                  sideScore.text = "Score: " + score;
+                }
             }
             else
             {
@@ -58,6 +76,10 @@ public class s_Sidebar : MonoBehaviour
     public void ToggleSideBar()
     {
         sidebar.SetActive(!sidebar.active);
+        if(!sidebar.activeSelf)
+        {
+          menu_Options.SetActive(false);
+        }
     }
     public void GoHome()
     {//Go back to main menu.

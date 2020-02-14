@@ -598,11 +598,11 @@ RectTransform:
   - {fileID: 2082646065327038168}
   - {fileID: 2082646064207526558}
   m_Father: {fileID: 2082646065476607944}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 70, y: -463}
+  m_AnchoredPosition: {x: 70, y: -420}
   m_SizeDelta: {x: 150, y: 640}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2082646064514714867
@@ -1048,15 +1048,14 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2082646065200966832}
+  m_Children: []
   m_Father: {fileID: 2082646065476607944}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -25}
-  m_SizeDelta: {x: 1122, y: 60}
+  m_SizeDelta: {x: 4800, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2082646064933256362
 CanvasRenderer:
@@ -1073,13 +1072,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082646064933256367}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.05490196}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1199,12 +1198,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2082646064933256364}
-  m_RootOrder: 0
+  m_Father: {fileID: 2082646065476607944}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -126.1, y: -30}
+  m_AnchoredPosition: {x: -128.48352, y: -25.000072}
   m_SizeDelta: {x: 250, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2082646065200966990
@@ -1240,7 +1239,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 52
-    m_Alignment: 3
+    m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1392,6 +1391,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2082646065292130713}
   - component: {fileID: 2082646065292130710}
+  - component: {fileID: 4360431108889215072}
   m_Layer: 5
   m_Name: nav_Sidebar
   m_TagString: Untagged
@@ -1429,6 +1429,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 0}
   sidebar: {fileID: 0}
+  isScoreEnabled: 1
+--- !u!114 &4360431108889215072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082646065292130712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ddde23eddf77e4f92d52e0674426d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 919971039a2124a4fbd3a713357c9981, type: 2}
 --- !u!1 &2082646065305427145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,6 +1779,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 2082646065505501884}
+  - {fileID: 2082646065200966832}
   - {fileID: 2082646064933256364}
   - {fileID: 2082646064514714869}
   m_Father: {fileID: 2082646065292130713}
@@ -1923,7 +1938,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2082646065478939178}
-        m_MethodName: SetLevel
+        m_MethodName: SaveGameVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1982,7 +1997,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 60, y: -98}
+  m_AnchoredPosition: {x: 60, y: -40}
   m_SizeDelta: {x: 120, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2082646065505501883

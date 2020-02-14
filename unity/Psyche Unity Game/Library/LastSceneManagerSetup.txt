@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/scene_CleanRoom.unity
+- path: Assets/Scenes/scene_Ground.unity
   isLoaded: 1
   isActive: 1

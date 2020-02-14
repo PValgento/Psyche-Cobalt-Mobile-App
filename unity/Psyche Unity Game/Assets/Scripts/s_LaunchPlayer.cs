@@ -35,7 +35,7 @@ public class s_LaunchPlayer : sb_PlayerConstruction
         rotation = steering.value * -1; //Invert value so slider left is steer left.
         model.transform.rotation = Quaternion.Euler(new Vector3(0f,0f,rotation));
         playerRb.AddForce(model.transform.up * movementSpeed);
-        Vector3 dir = target.transform.position - arrow.transform.position;
+        Vector3 dir = target.transform.position - this.transform.position;
         Quaternion rot = Quaternion.AngleAxis(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector3.up);
         arrow.transform.rotation = Quaternion.Euler(new Vector3(rot.eulerAngles.x, rot.eulerAngles.z, rot.eulerAngles.y-90f));
         dist.text = "Distance: " + (int)Vector3.Distance(model.transform.position, target.transform.position);
