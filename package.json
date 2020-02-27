@@ -12,7 +12,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@asmadsen/react-native-unity-view": "0.0.3",
     "bufferutil": "^4.0.1",
     "canvas": "^2.6.1",
     "eslint": "^6.8.0",
@@ -24,6 +23,7 @@
     "react-native-svg": "^5.5.1",
     "react-native-svg-uri": "^1.2.3",
     "react-native-timeline-feed": "^1.0.1",
+    "react-native-unity-view": "^1.3.3",
     "react-native-webview": "^7.4.0",
     "react-navigation": "^2.17.0",
     "redux": "^4.0.4",
