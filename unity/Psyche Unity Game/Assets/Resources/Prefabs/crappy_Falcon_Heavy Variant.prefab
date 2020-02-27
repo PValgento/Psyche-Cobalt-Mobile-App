@@ -17,6 +17,7 @@ MonoBehaviour:
   rSideBooster: {fileID: 3933383158522988785}
   lFairing: {fileID: 3933383158522988789}
   rFairing: {fileID: 3933383158522988779}
+  probe: {fileID: 0}
   isSideDetached: 0
   isFairingDetached: 0
   isCoreDetached: 0
@@ -14087,9 +14088,9 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 100022, guid: fd740126f7f7df9c7865128896630cb8, type: 3}
+    - target: {fileID: 100020, guid: fd740126f7f7df9c7865128896630cb8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: fd740126f7f7df9c7865128896630cb8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14134,6 +14135,10 @@ PrefabInstance:
     - target: {fileID: 400004, guid: fd740126f7f7df9c7865128896630cb8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: fd740126f7f7df9c7865128896630cb8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd740126f7f7df9c7865128896630cb8, type: 3}

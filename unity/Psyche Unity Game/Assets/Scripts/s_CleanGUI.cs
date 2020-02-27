@@ -8,7 +8,7 @@ public class s_CleanGUI : MonoBehaviour
 {
     private Button setButton;
     private GameObject playerObj;
-    public string buttonType = "";
+    public string buttonType = ""; public string otherData = "";
     public int partId = 0; private int type = 0;
 
     void Awake()
@@ -52,6 +52,16 @@ public class s_CleanGUI : MonoBehaviour
         {
             setButton = GetComponent<Button>();
             setButton.onClick.AddListener(SelectPart); type = 4;
+        }
+        else if(buttonType == "PREV")
+        {
+            setButton = GetComponent<Button>();
+            setButton.onClick.AddListener(SelectPrev);// type = 4;
+        }
+        else if(buttonType == "NEXT")
+        {
+            setButton = GetComponent<Button>();
+            setButton.onClick.AddListener(SelectNext);// type = 4;
         }
         else
         {//ERROR!
@@ -108,6 +118,18 @@ public class s_CleanGUI : MonoBehaviour
     public void SelectCraft()
     {
         PlayerPrefs.SetInt("Craft", partId);
+        playerObj.GetComponent<s_CleanPlayer>().ctl_UpdatePlayerPrefab();
+    }
+    public void SelectPrev()
+    {//Uses OtherData values of BODY, SIDE, ENGINE, to pass data to player.
+        PlayerPrefs.SetInt("Craft", -1); //Don't use premade.
+        playerObj.GetComponent<s_CleanPlayer>().ctl_PassCraftInfo(0, otherData);
+        playerObj.GetComponent<s_CleanPlayer>().ctl_UpdatePlayerPrefab();
+    }
+    public void SelectNext()
+    {//Uses OtherData values of BODY, SIDE, ENGINE, to pass data to player.
+        PlayerPrefs.SetInt("Craft", -1); //Don't use premade.
+        playerObj.GetComponent<s_CleanPlayer>().ctl_PassCraftInfo(1, otherData);
         playerObj.GetComponent<s_CleanPlayer>().ctl_UpdatePlayerPrefab();
     }
     public void LaunchCraft()
