@@ -53,7 +53,7 @@ public class s_GUI : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Loading Scene 1");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);//1
     }
     public void GameOptions()
     {

@@ -25,10 +25,47 @@ public class s_LaunchPlayer : sb_PlayerConstruction
         ctl_SetCameraPosition(new Vector3(0f, 25f, -40f));
         localGravity = Physics2D.gravity.y;
     }
-
+    protected bool isZooming = false;
+    protected float touchDistance = 0f;
+    protected float currentZoom = 40f;
+    //Make static later if works well for team.
+    protected float zoomMinLimit = 40f;
+    protected float zoomMaxLimit = 120f;
+    //?Also add zoom sensitivity setting in options?
     void Update()
     {//Update is called once per frame
-
+        if(Input.touchCount == 2)
+        {//Two finger zoom only atm.
+            float newTouchDistance = Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
+            if(isZooming)
+            {
+                if(newTouchDistance > touchDistance)
+                {//We zoom out if the distance increases.
+                    currentZoom = currentZoom + Mathf.Sqrt(Mathf.Abs(newTouchDistance - touchDistance));
+                }
+                else if(newTouchDistance < touchDistance)
+                {//Zoom in if distance decreases.
+                    currentZoom = currentZoom - Mathf.Sqrt(Mathf.Abs(newTouchDistance - touchDistance));
+                }
+                else
+                {
+                    //Do nothing.
+                }
+                if(currentZoom < zoomMinLimit)
+                    currentZoom = zoomMinLimit;
+                else if(currentZoom > zoomMaxLimit)
+                    currentZoom = zoomMaxLimit;
+                ctl_SetCameraOrthoZoom(currentZoom);
+            }
+            //After zooming is done, allow status changes.
+            isZooming = true;
+            touchDistance = newTouchDistance;
+        }
+        else
+        {
+            isZooming = false;
+            touchDistance = 0f;
+        }
     }
     void FixedUpdate()
     {//Fixed Update is when physics are calculated so want to do physics stuff here...

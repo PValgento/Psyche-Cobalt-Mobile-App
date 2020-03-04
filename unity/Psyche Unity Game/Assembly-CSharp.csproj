@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\s_GameController.cs" />
      <Compile Include="Assets\Scripts\s_GUI.cs" />
      <Compile Include="Assets\Scripts\s_LaunchPlayer.cs" />
+     <Compile Include="Assets\Scripts\s_LoadCamera.cs" />
      <Compile Include="Assets\Scripts\s_MenuCamera.cs" />
      <Compile Include="Assets\Scripts\s_Sidebar.cs" />
      <Compile Include="Assets\Scripts\s_SpacePlayer.cs" />

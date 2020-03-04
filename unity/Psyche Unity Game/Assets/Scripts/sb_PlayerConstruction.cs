@@ -205,6 +205,10 @@ public class sb_PlayerConstruction : MonoBehaviour
     }
     protected void ctl_SetCameraPosition(Vector3 newPos)
     {//Call to set camera position.
-      camera.transform.localPosition = newPos;
+        camera.transform.localPosition = newPos;
+    }
+    protected void ctl_SetCameraOrthoZoom(float value)
+    {//Check value is within the limits you want before using this method, each scene may have different comfortable zoom amounts.
+        camera.orthographicSize = value;
     }
 }
