@@ -171,6 +171,16 @@ public class s_LaunchPlayer : sb_PlayerConstruction
             Physics2D.gravity = new Vector2(0, localGravity * 0.01f);
             target = GameObject.Find("Target");
         }
+        else if(col.name == "Ground")
+        {
+            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score")+0);
+            //Play Sound?
+            if(this.GetComponent<Rigidbody2D>().velocity.magnitude > 5f)
+            {
+                //Player hit the ground, restart level.
+                SceneManager.LoadScene(3);
+            }
+        }
     }
     public void RestartLevel()
     {
