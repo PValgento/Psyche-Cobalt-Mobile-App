@@ -14,10 +14,15 @@ public class sb_Loading : MonoBehaviour
 
     void Awake()
     {
-        loadingHints.Add("The buddy system is essential for your survival it gives the enemy someone else to shoot at.");
-        loadingHints.Add("Cold?, Go to the corner it is 90 degrees!");
-        loadingHints.Add("Josh is bad with jokes...");
-        loadingHints.Add("1 by 4 by 9");
+        loadingHints.Add("Loading hint #1.");
+        loadingHints.Add("Loading hint #2.");
+        loadingHints.Add("Loading hint #3.");
+        loadingHints.Add("Loading hint #4.");
+        loadingHints.Add("Loading hint #5.");
+        loadingHints.Add("Loading hint #6.");
+        loadingHints.Add("Loading hint #7.");
+        loadingHints.Add("Loading hint #8.");
+        loadingHints.Add("Loading hint #9.");
         if(txt_Hint != null)
         {
             txt_Hint.text = loadingHints[Random.Range(0, loadingHints.Count)];
