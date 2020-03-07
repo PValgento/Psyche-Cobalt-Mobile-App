@@ -25,6 +25,11 @@ public class s_GUI : MonoBehaviour
             setButton = GetComponent<Button>();
             setButton.onClick.AddListener(StartGame);
         }
+        else if(buttonType == "TUTORIAL")
+        {
+            setButton = GetComponent<Button>();
+            setButton.onClick.AddListener(TutorialGame);
+        }
         else if(buttonType == "OPTION")
         {
             setButton = GetComponent<Button>();
@@ -53,7 +58,13 @@ public class s_GUI : MonoBehaviour
     public void StartGame()
     {
         Debug.Log("Loading Scene 1");
-        SceneManager.LoadScene(2);//1
+        PlayerPrefs.SetInt("SCENE", 2);
+        SceneManager.LoadScene(5);//2
+    }
+    public void TutorialGame()
+    {
+        PlayerPrefs.SetInt("SCENE", 6);
+        SceneManager.LoadScene(5);//6
     }
     public void GameOptions()
     {
@@ -73,14 +84,17 @@ public class s_GUI : MonoBehaviour
     }
     public void GoCleanRoom()
     {
-        SceneManager.LoadScene(2);
+        PlayerPrefs.SetInt("SCENE", 2);
+        SceneManager.LoadScene(5);//2
     }
     public void GoLaunch()
     {
-        SceneManager.LoadScene(3);
+        PlayerPrefs.SetInt("SCENE", 3);
+        SceneManager.LoadScene(5);//3
     }
     public void GoSpace()
     {
-        SceneManager.LoadScene(4);
+        PlayerPrefs.SetInt("SCENE", 4);
+        SceneManager.LoadScene(5);//4
     }
 }
