@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SpaceMovementController : MonoBehaviour
 {
+	public Vector3 StartingPosition;
 	public GameObject Model;
 	public float MaxSpeed;
 	public float ThrottleCoefficient;
@@ -24,6 +25,8 @@ public class SpaceMovementController : MonoBehaviour
 		MaxSpeed = 12;
 		ThrottleCoefficient = 5;
 		currentThrottle = 0;
+
+		transform.position = StartingPosition;
 
 		// Enable Model's Collider
 		var playerCollider = Model.GetComponentInChildren<Collider2D>();
