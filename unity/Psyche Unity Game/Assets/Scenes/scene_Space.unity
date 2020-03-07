@@ -8461,7 +8461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 2034273824}
-  fuelCoefficient: 10
+  fuelCoefficient: 1
   MaxFuel: 500
   CurrentFuel: 400
 --- !u!114 &2034273823
