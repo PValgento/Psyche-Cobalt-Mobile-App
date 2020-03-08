@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Fuel_Manager : MonoBehaviour
 {
 	public Slider slider;
+	public float fuelCoefficient;
 	public float MaxFuel;
 	public float CurrentFuel;
 
@@ -17,7 +18,7 @@ public class Fuel_Manager : MonoBehaviour
     }
 
 	public bool SetFuel(float fuel)
-	{
+	{		
 		if (fuel > 0 && fuel <= MaxFuel)
 		{
 			CurrentFuel = fuel;
@@ -39,7 +40,7 @@ public class Fuel_Manager : MonoBehaviour
 	}
 	public void AdjustFuel(float fuel)
 	{
-		float adjustedFuel = CurrentFuel + fuel;
+		float adjustedFuel = CurrentFuel + fuel*fuelCoefficient;
 		if (adjustedFuel < 0)
 			CurrentFuel = 0;
 		else if (adjustedFuel > MaxFuel)
