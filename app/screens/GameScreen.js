@@ -24,6 +24,7 @@ import infoPageStyle from '../styles/InfoPage.style';
 import GameStyle from '../styles/Game.style';
 import {Fonts} from '../components/Fonts';
 
+import { UnityModule } from 'react-native-unity-view';
 
 class GameScreen extends Component {
 	//Hiding the StackNavigator Header, not the one for the side menu
@@ -68,7 +69,7 @@ class GameScreen extends Component {
 						<Button primary
 							/*Added Styles here instead of a separate style.js file, because for some reason it is not accepting it*/
 							style={GameStyle.buttonLook, {justifyContent: 'center', alignSelf: 'center', width: '50%', backgroundColor: '#f79f27ff'}}
-							onPress={() => this.props.navigation.navigate('Player')}
+							onPress={() => {this.props.navigation.navigate('Player'); UnityModule.resume()}}
 						>
 							<Text style={GameStyle.cardText}>
 								Start Game

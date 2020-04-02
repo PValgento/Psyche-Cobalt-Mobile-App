@@ -24,7 +24,11 @@ import infoPageStyle from '../styles/InfoPage.style';
 import GameStyle from '../styles/Game.style';
 import {Fonts} from '../components/Fonts';
 
-import UnityView from 'react-native-unity-view'
+import HandleBack from '../components/PauseOnBack'
+
+import UnityView, { UnityModule } from 'react-native-unity-view'
+
+import { StackActions } from 'react-navigation';
 
 class GamePlayer extends Component {
 	static navigationOptions = {
@@ -32,11 +36,19 @@ class GamePlayer extends Component {
 		header: null,
 	};
 	
+	onBack = () => {
+		UnityModule.pause();
+		this.props.navigation.dispatch(StackActions.pop({n: 1,}));
+		return true;
+	};
+	
 	render() {
 		return (
-			<View style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, }} >
-				<UnityView style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, }} />
-			</View>
+			<HandleBack onBack={this.onBack}>
+				<View style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, }} >
+					<UnityView style={{ position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, }} />
+				</View>
+			</HandleBack>
 		);
 	}
 }
