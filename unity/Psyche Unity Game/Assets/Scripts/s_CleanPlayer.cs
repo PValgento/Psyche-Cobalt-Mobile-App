@@ -6,6 +6,7 @@ public class s_CleanPlayer : sb_PlayerConstruction
 {
     void Awake()
     {//Start is called before the first frame update
+        PlayerPrefs.SetInt("Craft", -1);
         ctl_PlayerAwake();
         ctl_UpdatePlayerPrefab();
         ctl_SetCameraPosition(new Vector3(0f, -2.5f, -10f));

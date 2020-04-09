@@ -10,6 +10,7 @@ Assets/Scenes/scene_Space.unity
 Assets/Scenes/scene_Loading.unity
 Assets/Scenes/scene_Tutorial.unity
 Assets/Scenes/scene_TutorialLaunch.unity
+Assets/Scenes/scene_TutorialSpace.unity
 SceneListEnd?
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.s_TutorialGUI
 3c08375166df118bd1801438fc36b92f Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
@@ -112,7 +113,7 @@ e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.G
 e1bbf0ab858085e38fae6b12ebbdcd35 UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 201e3fde670b00545944bb3db215c80a UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 787b7f6dec616f7986358e5b9bdacbfe Assembly-CSharp.dll:.s_TutLaunchPlayer
-fd82daece7a2caae1f0dc9d975ec7acf Assembly-CSharp.dll:.s_TutorialStarter
+1373af7dbfd33288e3b8fd1a12fc507b Assembly-CSharp.dll:.s_TutorialStarter
 4e9333594897a1fb8b136ad2eae996c7 Unity.TextMeshPro.dll:TMPro.TMP_SubMeshUI
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -190,3 +191,4 @@ df434544c9f7b33d1cc7e635b180d279 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.s_CleanPlayer
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.s_TutSpacePlayer

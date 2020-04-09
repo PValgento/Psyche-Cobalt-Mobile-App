@@ -8,7 +8,7 @@ public class sb_PlayerConstruction : MonoBehaviour
     protected int solarIndex = 0;
     protected int sensorIndex = 0;
     protected int engineIndex = 0;
-    protected int prefabIndex = 0;
+    protected int prefabIndex = -1;
 
     protected GameObject prefab1;
     protected GameObject prefab2;

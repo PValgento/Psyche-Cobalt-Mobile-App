@@ -45,7 +45,7 @@ public class sb_Loading : MonoBehaviour
     void Update()
     {// Update is called once per frame
         currentDelay += Time.deltaTime;
-        if(currentDelay >= minLoadingTime || Input.touchCount > 0)
+        if(currentDelay >= minLoadingTime || Input.touchCount > 0 || Input.GetMouseButtonDown(0))
         {//Wait for min time or user tap.
             SceneManager.LoadScene(nextScene);
         }
