@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\s_TutLaunchPlayer.cs" />
      <Compile Include="Assets\Scripts\s_TutorialGUI.cs" />
      <Compile Include="Assets\Scripts\s_TutorialStarter.cs" />
+     <Compile Include="Assets\Scripts\s_TutSpacePlayer.cs" />
      <Compile Include="Assets\Scripts\sb_Camera.cs" />
      <Compile Include="Assets\Scripts\sb_GUI_CleanRoom.cs" />
      <Compile Include="Assets\Scripts\sb_GUI_CleanRoom_Arrows.cs" />

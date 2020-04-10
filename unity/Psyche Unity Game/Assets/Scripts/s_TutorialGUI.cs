@@ -21,8 +21,8 @@ public class s_TutorialGUI : MonoBehaviour
     }
     public void SpaceTutorial()
     {
-        PlayerPrefs.SetInt("SCENE", 1);
-        SceneManager.LoadScene(5);//1
+        PlayerPrefs.SetInt("SCENE", 8);
+        SceneManager.LoadScene(5);//8
     }
     public void MainMenu()
     {

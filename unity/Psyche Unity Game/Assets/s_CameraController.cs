@@ -14,7 +14,7 @@ public class s_CameraController : MonoBehaviour
 	{
 		//Calculate and store the offset value by getting the distance between the player's position and camera's position.
 		offset = transform.position - player.transform.position;
-		zoom = 5;
+		zoom = 12; //Changed from 5 --Josh
 	}
 
 	void Update()

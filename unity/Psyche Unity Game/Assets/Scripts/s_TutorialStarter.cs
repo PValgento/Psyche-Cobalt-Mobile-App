@@ -10,6 +10,7 @@ public class s_TutorialStarter : MonoBehaviour
     public GameObject tutorial_Dist;
     public GameObject tutorial_Steer;
     public GameObject tutorial_Begin;
+    public GameObject tutorial_Arrow;
 
     public GameObject tutorial_Welcome;
     public GameObject tutorial_Objective;
@@ -22,6 +23,8 @@ public class s_TutorialStarter : MonoBehaviour
             tutorial_Dist.SetActive(false);
         if(tutorial_Steer != null)
             tutorial_Steer.SetActive(false);
+        if(tutorial_Arrow != null)
+            tutorial_Arrow.SetActive(false);
         if(tutorial_Begin != null)
             tutorial_Begin.SetActive(false);
 
