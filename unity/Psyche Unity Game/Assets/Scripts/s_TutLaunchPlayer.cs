@@ -11,6 +11,12 @@ public class s_TutLaunchPlayer : sb_PlayerConstruction
     Slider steering; Text dist;
     Color sky; Color space; public Material skybox;
     float rotation = 0f; float localGravity = 0f; bool setSkybox = false;
+
+    //Information Arrows
+    protected GameObject objectiveAnchor;
+    protected GameObject velocityAnchor;
+    private Vector3 lastPosition = Vector3.zero;
+
     void Awake()
     {//Start is called before the first frame update
         model = this.transform.GetChild(0).gameObject; //camera = GameObject.Find("PlayerCamera").GetComponent<Camera>();
@@ -24,6 +30,14 @@ public class s_TutLaunchPlayer : sb_PlayerConstruction
         sky = new Color(.85f,.85f,.85f,1f); space = new Color(0f,0f,0f,1f);
         ctl_SetCameraPosition(new Vector3(0f, 25f, -40f));
         localGravity = Physics2D.gravity.y;
+
+        //Find Information Arrows, set them to be children, and reset positions..
+        objectiveAnchor = GameObject.Find("ObjectiveAnchor");
+        velocityAnchor = GameObject.Find("VelocityAnchor");
+        objectiveAnchor.transform.parent = this.transform;
+        velocityAnchor.transform.parent = this.transform;
+        objectiveAnchor.transform.localPosition = Vector3.zero;
+        velocityAnchor.transform.localPosition = Vector3.zero;
     }
     private float tickDelay = 0f;
     void Update()
@@ -46,7 +60,6 @@ public class s_TutLaunchPlayer : sb_PlayerConstruction
         Quaternion rot = Quaternion.AngleAxis(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector3.up);
         arrow.transform.rotation = Quaternion.Euler(new Vector3(rot.eulerAngles.x, rot.eulerAngles.z, rot.eulerAngles.y-90f));
         dist.text = "Distance: " + (int)Vector3.Distance(model.transform.position, target.transform.position);
-        //arrow.transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(arrow.transform.position, target.transform.position, 1f, 1f));
         if(this.transform.position.y > target.transform.position.y + 30f)//was 20f
         {//You passed it, and rockets don't like to go down...
             Debug.Log("You Missed!");
@@ -67,13 +80,20 @@ public class s_TutLaunchPlayer : sb_PlayerConstruction
         {//Use regular color skybox.
             camera.backgroundColor = Color.Lerp(sky, space, model.transform.position.y/240f);
         }
+
+        dir = target.transform.position - this.transform.position;
+        rot = Quaternion.AngleAxis(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector3.up);
+
+        objectiveAnchor.transform.rotation = Quaternion.Euler(new Vector3(rot.eulerAngles.x, rot.eulerAngles.z, rot.eulerAngles.y-90f));
+        //Reuse dir & rot for velocityAnchor.
+        dir = this.transform.position - lastPosition;
+        rot = Quaternion.AngleAxis(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector3.up);
+        velocityAnchor.transform.rotation = Quaternion.Euler(new Vector3(rot.eulerAngles.x, rot.eulerAngles.z, rot.eulerAngles.y-90f));
+        lastPosition = this.transform.position;
     }
     public void ctl_UpdatePlayerPrefab()
     {
         this.ctl_UsePlayerPrefs(new Vector3(0f, 10.7f, 0f));
-        //GameObject rocketObj = Instantiate(prefabRocket, this.transform.position + new Vector3(0f, -3f, 0f), this.transform.rotation);
-        //rocketObj.transform.parent = modelChild;
-        //cFH testing
         GameObject rocketObj = Instantiate(cFH, this.transform.position + new Vector3(0f, 2.07f, 0f), Quaternion.Euler(0f, 90f, 0f));
         rocketObj.transform.parent = modelChild;
     }
@@ -108,41 +128,8 @@ public class s_TutLaunchPlayer : sb_PlayerConstruction
             //Play Sound?
             col.gameObject.SetActive(false);
             Physics2D.gravity = new Vector2(0, localGravity * 0.45f);
-            //target = GameObject.Find("Goal4");
             target = GameObject.Find("Target");
-        }/*
-        else if(col.name == "Goal4")
-        {
-            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score")+0);
-            //Play Sound?
-            col.gameObject.SetActive(false);
-            Physics2D.gravity = new Vector2(0, localGravity * 0.32f);
-            target = GameObject.Find("Goal5");
         }
-        else if(col.name == "Goal5")
-        {
-            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score")+0);
-            //Play Sound?
-            col.gameObject.SetActive(false);
-            Physics2D.gravity = new Vector2(0, localGravity * 0.24f);
-            target = GameObject.Find("Goal6");
-        }
-        else if(col.name == "Goal6")
-        {
-            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score")+0);
-            //Play Sound?
-            col.gameObject.SetActive(false);
-            Physics2D.gravity = new Vector2(0, localGravity * 0.125f);
-            target = GameObject.Find("Goal7");
-        }
-        else if(col.name == "Goal7")
-        {
-            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score")+0);
-            //Play Sound?
-            col.gameObject.SetActive(false);
-            Physics2D.gravity = new Vector2(0, localGravity * 0.01f);
-            target = GameObject.Find("Target");
-        }*/
         else if(col.name == "Ground")
         {
             PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score")+0);

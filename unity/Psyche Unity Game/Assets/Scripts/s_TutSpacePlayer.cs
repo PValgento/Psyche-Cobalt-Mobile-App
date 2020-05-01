@@ -18,10 +18,12 @@ public class s_TutSpacePlayer : sb_PlayerConstruction
     //Fuel & Throttle:
     Slider throttleSlide;
     Slider fuelSlider;
+
     //Fuel System:
     protected float fuelCoefficient = 0.5f;//Less fuel used in tutorial than actual space scene.
     protected float currentFuel = 500;
     protected float MAX_FUEL = 500;
+
     //Throttle Decreasing System:
     private bool recentClick = false;
   	private int frameCount = 0;
@@ -30,6 +32,7 @@ public class s_TutSpacePlayer : sb_PlayerConstruction
     //Information Arrows
     protected GameObject objectiveAnchor;
     protected GameObject velocityAnchor;
+    private Vector3 lastPosition = Vector3.zero;
 
     void Awake()
     {//Start is called before the first frame update
@@ -97,7 +100,6 @@ public class s_TutSpacePlayer : sb_PlayerConstruction
             ThrottleDrain();
         }
     }
-    private Vector3 lastPosition = Vector3.zero;
     void FixedUpdate()
     {//Fixed Update is when physics are calculated so want to do physics stuff here...
 
@@ -112,8 +114,8 @@ public class s_TutSpacePlayer : sb_PlayerConstruction
         Vector3 dir = target.transform.position - this.transform.position;
         Quaternion rot = Quaternion.AngleAxis(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector3.up);
         arrow.transform.rotation = Quaternion.Euler(new Vector3(rot.eulerAngles.x, rot.eulerAngles.z, rot.eulerAngles.y-90f));
-
         objectiveAnchor.transform.rotation = Quaternion.Euler(new Vector3(rot.eulerAngles.x, rot.eulerAngles.z, rot.eulerAngles.y-90f));
+
         //Reuse dir & rot for velocityAnchor.
         dir = this.transform.position - lastPosition;
         rot = Quaternion.AngleAxis(Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg, Vector3.up);
@@ -152,7 +154,6 @@ public class s_TutSpacePlayer : sb_PlayerConstruction
             PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score")+0);
             //Play Sound?
             col.gameObject.SetActive(false);
-            //target = GameObject.Find("Goal4");
             target = GameObject.Find("Target");
         }
         else if(col.name == "Obstacle")
@@ -160,13 +161,6 @@ public class s_TutSpacePlayer : sb_PlayerConstruction
             PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score")+0);
             Debug.Log("That hurt Charlie!");
             missed.SetActive(true);
-
-            //Play Sound?
-            /*if(this.GetComponent<Rigidbody2D>().velocity.magnitude > 5f)
-            {
-                //Player hit the ground, restart level.
-                SceneManager.LoadScene(8);
-            }*/
         }
     }
     public void RestartLevel()
@@ -175,7 +169,7 @@ public class s_TutSpacePlayer : sb_PlayerConstruction
     }
 
     public void ThrottleDrain()
-    {
+    {//Lowers the throttle over time after pressed.
   			if (frameCount < 15) {
   				throttleSlide.value = System.Math.Max(throttleSlide.value - (float) (0.06667 * clickValue), 0);
   				frameCount++;

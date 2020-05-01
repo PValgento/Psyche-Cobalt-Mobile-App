@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/DELL/Documents/Psyche-Cobalt-Mobile-App/unity/Psyche Unity Game/Builds/Psyche16.apk
+/mnt/Applications/Projects/Unity/Build/PsycheUnity-Android.apk
 SceneListBegin?
 Assets/Scenes/scene_Menu.unity
 Assets/Scenes/scene_Test.unity
